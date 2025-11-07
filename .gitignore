@@ -1,0 +1,10 @@
+/build/
+/.gradle/
+**/.gradle/
+**/.kotlin/
+**/build/
+**/run/
+
+/.idea/
+*/.idea/
+/.idea/*

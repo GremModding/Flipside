@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "flipside",
+  "version": "${mod_version}",
+  "name": "Flipside",
+  "description": "A world thats been turnt upside down",
+  "authors": [
+    "Siuolplex"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "MIT",
+  "icon": "flipside.icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.siuolplex.flipside.FlipsideFabric"
+    ]
+  },
+  "mixins": [
+    "flipside.mixins.json",
+    "flipside.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.3",
+    "fabric-api": "*",
+    "minecraft": "~${minecraft_version}"
+  }
+}
