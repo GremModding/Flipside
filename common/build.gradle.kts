@@ -8,6 +8,7 @@ val minecraft_version : String by project
 val neoform_version : String by project
 val parchment_minecraft_version : String by project
 val parchment_version : String by project
+val is_parchment_ready : String by project
 
 neoForge {
     neoFormVersion = neoform_version
@@ -17,9 +18,11 @@ neoForge {
         accessTransformers.from(at.absolutePath)
     }
 
-    parchment {
-        minecraftVersion = parchment_minecraft_version
-        mappingsVersion = parchment_version
+    if (is_parchment_ready.equals("true")) {
+        parchment {
+            minecraftVersion = parchment_minecraft_version
+            mappingsVersion = parchment_version
+        }
     }
 }
 
