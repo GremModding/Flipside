@@ -2,6 +2,8 @@ package io.siuolplex.untitledlib.util.fabric;
 
 import io.siuolplex.untitledlib.util.multiloader.LoaderWrapper;
 import net.fabricmc.api.EnvType;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.nio.file.Path;

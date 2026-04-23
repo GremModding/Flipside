@@ -11,7 +11,7 @@ val mod_name: String by project
 val mod_author: String by project
 
 base {
-    archivesName = "${mod_id}-${project.name}-${minecraft_version}"
+    archivesName = "${mod_id}-${project.name}"
 }
 
 java {

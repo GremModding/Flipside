@@ -7,13 +7,14 @@ import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.function.Consumer;
+
 public class Flipside {
     public static final String MOD_ID = "flipside";
     public static Logger LOGGER = LoggerFactory.getLogger("Flipside");
 
-
     public static void init(LoaderWrapper wrappedLoader) {
-
+        Consumer<?> consumer = h -> loadRegistries();
     }
 
     public static void loadRegistries() {

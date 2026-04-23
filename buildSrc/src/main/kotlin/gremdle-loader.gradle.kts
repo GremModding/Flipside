@@ -23,6 +23,10 @@ dependencies {
         capabilities {
             requireCapability("$group:$mod_id")
         }
+        val loaderAttribute: Attribute<String> = Attribute.of("io.github.mcgradleconventions.loader", String::class.java)
+        attributes {
+            attribute(loaderAttribute, "common")
+        }
     }
 
     commonJava(project(":common", "commonJava"))

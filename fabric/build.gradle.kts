@@ -24,7 +24,7 @@ dependencies {
         }
     )
     modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}")
 }
 
 loom {
@@ -52,5 +52,11 @@ loom {
             ideConfigGenerated(true)
             runDir("run/server")
         }
+    }
+}
+
+fabricApi {
+    configureDataGeneration() {
+        client = true
     }
 }

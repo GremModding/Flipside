@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "io.siuolplex.flipside.FlipsideFabric"
+    ],
+    "fabric-datagen": [
+      "io.siuolplex.flipside.datagen.FlipsideFabricDatagen"
     ]
   },
   "mixins": [
