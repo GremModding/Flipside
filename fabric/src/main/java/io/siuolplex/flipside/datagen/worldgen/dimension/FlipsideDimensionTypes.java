@@ -13,7 +13,7 @@ import java.util.OptionalLong;
 
 public class FlipsideDimensionTypes extends DimensionTypes {
     public static void bootstrap(BootstrapContext<DimensionType> context) {
-        context.register(FlipsideDimensions.FLIPSIDE_DIMTYPE_KEY, new DimensionType(
+        /*context.register(FlipsideDimensions.FLIPSIDE_DIMTYPE_KEY, new DimensionType(
                 OptionalLong.empty(),
                 true, // hasSkylight
                 true, // hasCeiling
@@ -26,10 +26,10 @@ public class FlipsideDimensionTypes extends DimensionTypes {
                 384, // height
                 384, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, //infiniburn
-                BuiltinDimensionTypes.OVERWORLD_EFFECTS, //effectsLocation
+                BuiltinDimensionTypes.OVERWORLD, //effectsLocation
                 0.0F, //ambientLight
                 Optional.of(192), //cloudHeight
                 new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0) // monsterSettings
-        ));
+        ));*/
     }
 }

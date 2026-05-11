@@ -6,9 +6,11 @@ plugins {
 
 val minecraft_version : String by project
 val neoform_version : String by project
-val parchment_minecraft_version : String by project
-val parchment_version : String by project
-val is_parchment_ready : String by project
+val mixin_version : String by project
+val fabric_mixin_version : String by project
+val mixin_extras_version : String by project
+
+val gremlib_version : String by project
 
 neoForge {
     neoFormVersion = neoform_version
@@ -18,20 +20,17 @@ neoForge {
         accessTransformers.from(at.absolutePath)
     }
 
-    if (is_parchment_ready.equals("true")) {
-        parchment {
-            minecraftVersion = parchment_minecraft_version
-            mappingsVersion = parchment_version
-        }
-    }
+    val interfaceInjection = file("src/main/resources")
 }
 
 dependencies {
-    compileOnly("org.spongepowered:mixin:0.8.7")
+    compileOnly("net.fabricmc:sponge-mixin:${fabric_mixin_version}+mixin.${mixin_version}")
 
     // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
-    compileOnly("io.github.llamalad7:mixinextras-common:0.5.0")
-    annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0")
+    compileOnly("io.github.llamalad7:mixinextras-common:${mixin_extras_version}")
+    annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras_version}")
+
+    implementation("io.siuolplex:gremlib:${gremlib_version}+common")
 }
 
 
@@ -43,10 +42,10 @@ val commonJava by configurations.creating {
 val commonResources by configurations.creating {
     isCanBeResolved = false
     isCanBeConsumed = true
+
 }
 
 artifacts {
     add(commonJava.name, (sourceSets.main.get().java.sourceDirectories.singleFile))
     add(commonResources.name, (sourceSets.main.get().resources.sourceDirectories.singleFile))
 }
-

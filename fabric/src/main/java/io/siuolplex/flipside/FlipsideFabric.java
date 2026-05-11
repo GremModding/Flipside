@@ -1,19 +1,16 @@
 package io.siuolplex.flipside;
 
-import io.siuolplex.untitledlib.registration.DelayedRegistry;
-import io.siuolplex.untitledlib.util.fabric.FabricLoaderWrapper;
 import net.fabricmc.api.ModInitializer;
 
 public class FlipsideFabric implements ModInitializer {
+    Flipside flipside;
+
     @Override
     public void onInitialize() {
-        Flipside.init(new FabricLoaderWrapper());
-
+        flipside = new Flipside();
         handleRegistration();
     }
 
     private void handleRegistration() {
-        Flipside.loadRegistries();
-        DelayedRegistry.fireAllRegistriesInMod("flipside");
     }
 }

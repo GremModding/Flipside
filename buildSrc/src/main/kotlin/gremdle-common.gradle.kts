@@ -22,6 +22,7 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 
     // https://docs.gradle.org/current/userguide/declaring_repositories.html#declaring_content_exclusively_found_in_one_repository
 
@@ -118,7 +119,7 @@ tasks {
             expand(expandProps)
         }
 
-        files(listOf("pack.mcmeta", "fabric.mod.json", "*.mixins.json")) {
+        filesMatching(listOf("pack.mcmeta", "fabric.mod.json", "*.mixins.json")) {
             expand(jsonExpandProps)
         }
 

@@ -1,30 +1,24 @@
 plugins {
     id("gremdle-loader")
-    id("fabric-loom")
+    id("net.fabricmc.fabric-loom")
 }
 
 val minecraft_version : String by project
 
 val mod_id: String by project
-val mod_version: String by project
+val version: String by project
 val mod_name: String by project
-
-val parchment_minecraft_version : String by project
-val parchment_version : String by project
 
 val fabric_loader_version : String by project
 val fabric_api_version : String by project
+val gremlib_version : String by project
 
 dependencies {
     minecraft("com.mojang:minecraft:${minecraft_version}")
-    mappings (
-        loom.layered {
-            officialMojangMappings()
-            parchment("org.parchmentmc.data:parchment-${parchment_minecraft_version}:${parchment_version}@zip")
-        }
-    )
-    modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}")
+    implementation ("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    implementation ("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}")
+
+    implementation("io.siuolplex:gremlib:${gremlib_version}+fabric")
 }
 
 loom {
@@ -34,21 +28,17 @@ loom {
         accessWidenerPath.set(aw)
     }
 
-    mixin {
-        defaultRefmapName = ("${mod_id}.refmap.json")
-    }
-
     runs {
         this.getByName("client") {
             client()
-            setConfigName("Fabric Client")
+            configName = "Fabric Client"
             ideConfigGenerated(true)
             runDir("run/client")
         }
 
-        this.getByName( "server") {
+        this.getByName("server") {
             server()
-            setConfigName("Fabric Server")
+            configName = "Fabric Server"
             ideConfigGenerated(true)
             runDir("run/server")
         }
@@ -56,7 +46,7 @@ loom {
 }
 
 fabricApi {
-    configureDataGeneration() {
+    configureDataGeneration {
         client = true
     }
 }
