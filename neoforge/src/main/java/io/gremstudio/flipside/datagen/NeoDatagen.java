@@ -1,4 +1,4 @@
-package io.siuolplex.flipside.datagen;
+package io.gremstudio.flipside.datagen;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;

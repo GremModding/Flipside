@@ -1,6 +1,6 @@
-package io.siuolplex.flipside;
+package io.gremstudio.flipside;
 
-import io.siuolplex.gremlib.neoforge.initializers.GremModInitalizationEvent;
+import io.gremstudio.gremlib.neoforge.initializers.GremModInitalizationEvent;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;

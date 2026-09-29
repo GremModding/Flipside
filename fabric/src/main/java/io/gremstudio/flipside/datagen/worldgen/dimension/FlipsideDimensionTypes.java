@@ -1,15 +1,8 @@
-package io.siuolplex.flipside.datagen.worldgen.dimension;
+package io.gremstudio.flipside.datagen.worldgen.dimension;
 
-import io.siuolplex.flipside.registry.FlipsideDimensions;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.DimensionTypes;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
-
-import java.util.Optional;
-import java.util.OptionalLong;
 
 public class FlipsideDimensionTypes extends DimensionTypes {
     public static void bootstrap(BootstrapContext<DimensionType> context) {

@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "io.siuolplex.flipside.mixin.neoforge",
+  "package": "io.gremstudio.flipside.mixin.neoforge",
   "refmap": "flipside.refmap.json",
   "compatibilityLevel": "JAVA_18",
   "mixins": [],

@@ -2,19 +2,11 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
+        mavenLocal()
 
-        exclusiveContent {
-            forRepository {
-                maven {
-                    name = "Fabric"
-                    url = uri("https://maven.fabricmc.net")
-                }
-            }
-            filter {
-                includeGroup("net.fabricmc")
-                includeGroup("net.fabricmc.unpick")
-                includeGroup("fabric-loom")
-            }
+        maven {
+            name = "Fabric"
+            url = uri("https://maven.fabricmc.net")
         }
 
         exclusiveContent {
@@ -50,6 +42,7 @@ plugins {
 
 rootProject.name = "Flipside"
 
+    //includeBuild("build-logic")
 include("common")
 include("fabric")
 include("neoforge")
