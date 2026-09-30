@@ -16,6 +16,8 @@ val gremlibVersion = providers.gradleProperty("gremlib_version").get()
 
 dependencies {
     implementation("io.gremstudio:gremlib:${gremlibVersion}+common-${minecraftVersion}-SNAPSHOT")
+    accessTransformers("io.gremstudio:gremlib:${gremlibVersion}+common-${minecraftVersion}-SNAPSHOT")
+    interfaceInjectionData("io.gremstudio:gremlib:${gremlibVersion}+common-${minecraftVersion}-SNAPSHOT")
 }
 
 gauntlet {

@@ -8,6 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Items;
 
 public class FlipsideCreativeModeTabs {
     public static final ResourceKey<CreativeModeTab> FLIPSIDE_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, Flipside.INSTANCE.createId("flipside"));
@@ -17,9 +18,6 @@ public class FlipsideCreativeModeTabs {
         CreativeModeTab flipsideTab = CreativeTabAPI.createTab(builder ->
                 builder.icon(() -> FlipsideItems.FLIPGRASS.getDefaultInstance())
                         .title(Component.translatableWithFallback("flipside.itemGroup.flipside", "Flipside"))
-                        .displayItems(((parameters, output) -> {
-
-                        }))
                         .build()
         );
 

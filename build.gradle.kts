@@ -71,14 +71,14 @@ gauntlet {
         modVersion = modVersionProp
         metadata {
             modName = providers.gradleProperty("mod_name").get()
-            description = "The library used for various mods."
+            description = "A world turned upside down."
             license = "MIT"
             icon = "icon.png"
             authors.add(Person("Grem Studio"))
             contributors.add(Person("Siuol").setRole("Project Lead"))
             contacts = mapOf(
-                "source" to "https://github.com/GremModding/Gremlib",
-                "issues" to "https://github.com/GremModding/Gremlib/issues"
+                "source" to "https://github.com/" + repo,
+                "issues" to "https://github.com/" + repo + "/issues"
             )
         }
 
