@@ -3,7 +3,7 @@ package io.gremstudio.flipside.registry;
 import io.gremstudio.flipside.Flipside;
 import io.gremstudio.flipside.entities.jello.TransformableJelloBall;
 import io.gremstudio.flipside.items.TransformableJelloItem;
-import io.gremstudio.gremlib.multiloader.item.CreativeTabAPI;
+import io.gremstudio.gremlib.api.multiloader.item.CreativeTabAPI;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;

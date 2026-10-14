@@ -1,27 +1,20 @@
 package io.gremstudio.flipside.entities.jello;
 
-import io.gremstudio.flipside.Jellomancy;
-import io.gremstudio.flipside.util.VectorUtil;
-import net.minecraft.commands.arguments.EntityAnchorArgument;
+import io.gremstudio.flipside.Flipside;
+import io.gremstudio.flipside.registry.FlipsideEntities;
+import io.gremstudio.flipside.registry.FlipsideItems;
+import io.gremstudio.gremlib.api.util.VectorUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Vec3i;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.GameEventTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.Mth;
-import net.minecraft.util.Unit;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.monster.warden.Warden;
-import net.minecraft.world.entity.monster.warden.WardenAi;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -30,13 +23,11 @@ import net.minecraft.world.level.gameevent.EntityPositionSource;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.PositionSource;
 import net.minecraft.world.level.gameevent.vibrations.VibrationSystem;
-import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import org.joml.Vector3fc;
 
-import java.util.Map;
-import java.util.Optional;
 import java.util.function.BiConsumer;
 
 public class SculkJelloBall extends AbstractJelloBall implements VibrationSystem {
@@ -45,9 +36,9 @@ public class SculkJelloBall extends AbstractJelloBall implements VibrationSystem
     private User vibrationUser;
     int heardVibration = 21;
     int spawningTimer = 20;
-    private Vector3f targetPosition = this.position().toVector3f();
+    private Vector3fc targetPosition = this.position().toVector3f();
     protected static final EntityDataAccessor<Integer> DATA_VIB = SynchedEntityData.defineId(SculkJelloBall.class, EntityDataSerializers.INT);
-    protected static final EntityDataAccessor<Vector3f> DATA_TARGET_POS = SynchedEntityData.defineId(SculkJelloBall.class, EntityDataSerializers.VECTOR3);
+    protected static final EntityDataAccessor<Vector3fc> DATA_TARGET_POS = SynchedEntityData.defineId(SculkJelloBall.class, EntityDataSerializers.VECTOR3);
 
 
     public SculkJelloBall(EntityType<? extends AbstractJelloBall> entityType, Level level) {
@@ -125,7 +116,7 @@ public class SculkJelloBall extends AbstractJelloBall implements VibrationSystem
         this.entityData.set(DATA_VIB, heardVibration);
     }
 
-    private Vector3f getDataTargetPos() {
+    private Vector3fc getDataTargetPos() {
         return this.entityData.get(DATA_TARGET_POS);
     }
 
@@ -140,7 +131,7 @@ public class SculkJelloBall extends AbstractJelloBall implements VibrationSystem
 
     @Override
     protected Item getDefaultItem() {
-        return FlipsideItems.SCULK_JELLO;
+        return FlipsideItems.JELLO;
     }
 
 
@@ -205,7 +196,7 @@ public class SculkJelloBall extends AbstractJelloBall implements VibrationSystem
             SculkJelloBall.this.targetPosition = targetPos;
             setDataTargetPos(targetPos);
 
-            Jellomancy.LOGGER.info("Vibration received");
+            Flipside.INSTANCE.getLogger().info("Vibration received");
         }
     }
 }

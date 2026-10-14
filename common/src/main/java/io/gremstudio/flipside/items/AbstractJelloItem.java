@@ -49,7 +49,7 @@ public abstract class AbstractJelloItem extends Item implements ProjectileItem {
                 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F)
         );
         if (level instanceof ServerLevel serverLevel) {
-            Projectile.spawnProjectileFromRotation(ballFactory(), serverLevel, itemStack, player, 0.0F, 1.5F, 1.0F);
+            Projectile.spawnProjectileFromRotation(ballFactory(), serverLevel, itemStack, player, 0.0F, 1.0f, 1.0F);
         }
 
         player.awardStat(Stats.ITEM_USED.get(this));

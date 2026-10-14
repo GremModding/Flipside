@@ -1,17 +1,21 @@
 package io.gremstudio.flipside;
 
+import io.gremstudio.flipside.client.FlipsideClient;
 import io.gremstudio.flipside.registry.FlipsideBlocks;
 import io.gremstudio.flipside.registry.FlipsideCreativeModeTabs;
 import io.gremstudio.flipside.registry.FlipsideEntities;
 import io.gremstudio.flipside.registry.FlipsideItems;
-import io.gremstudio.gremlib.mod.GremMod;
-import io.gremstudio.gremlib.mod.HasRegistration;
+import io.gremstudio.gremlib.api.client.mod.GremModClient;
+import io.gremstudio.gremlib.api.mod.BaseGremMod;
+import io.gremstudio.gremlib.api.mod.GremMod;
+import io.gremstudio.gremlib.api.mod.capabilities.HasRegistration;
+import io.gremstudio.gremlib.api.mod.capabilities.WithClientside;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Flipside extends GremMod implements HasRegistration {
+public class Flipside extends GremMod implements HasRegistration, WithClientside {
     private final Logger LOGGER = LoggerFactory.getLogger("Flipside");
     public static Flipside INSTANCE = null;
 
@@ -43,5 +47,10 @@ public class Flipside extends GremMod implements HasRegistration {
     @Override
     public Logger getLogger() {
         return LOGGER;
+    }
+
+    @Override
+    public GremModClient<? extends BaseGremMod> initializeClient() {
+        return new FlipsideClient(this);
     }
 }

@@ -1,11 +1,13 @@
 package io.gremstudio.flipside.entities.jello;
 
-import io.gremstudio.flipside.util.AdditionalProjectileUtil;
+import io.gremstudio.flipside.registry.FlipsideEntities;
+import io.gremstudio.flipside.registry.FlipsideItems;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -44,7 +46,7 @@ public class WindJelloBall extends AbstractJelloBall {
 
     @Override
     protected Item getDefaultItem() {
-        return FlipsideItems.WIND_JELLO;
+        return FlipsideItems.JELLO;
     }
 
     @Override
@@ -76,18 +78,19 @@ public class WindJelloBall extends AbstractJelloBall {
                 .explode(
                         this,
                         null,
-                        new SimpleExplosionDamageCalculator(
-                                true, false, Optional.of(1.05f), BuiltInRegistries.BLOCK.get(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity())),
+                        new SimpleExplosionDamageCalculator(true, false, Optional.of(1.05f), BuiltInRegistries.BLOCK.get(BlockTags.BLOCKS_WIND_CHARGE_EXPLOSIONS).map(Function.identity())),
                         this.getX(),
                         this.getY(),
                         this.getZ(),
                         1.2F,
                         false,
-                        Level.ExplosionInteraction.TRIGGER,
+                        Level.ExplosionInteraction.TRIGGER
+                );
+        /*
                         ParticleTypes.GUST_EMITTER_SMALL,
                         ParticleTypes.GUST_EMITTER_LARGE,
                         SoundEvents.WIND_CHARGE_BURST
-                );
+         */
     }
 
     @Override

@@ -5,7 +5,7 @@ license = "MIT"
 
 [[mods]]
 modId = "flipside"
-version = "${mod_version}"
+version = "${version}"
 displayName = "Flipside"
 
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional (see https://docs.neoforged.net/docs/misc/updatechecker/)
@@ -37,7 +37,7 @@ side = "BOTH"
 [[dependencies.flipside]]
 modId = "gremlib"
 mandatory = true
-versionRange = "[0.1, 0.2)"
+versionRange = "[0.2, 0.3)"
 ordering = "NONE"
 side = "BOTH"
 

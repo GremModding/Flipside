@@ -2,7 +2,8 @@ package io.gremstudio.flipside.entities.jello;
 
 import io.gremstudio.flipside.registry.FlipsideEntities;
 import io.gremstudio.flipside.registry.FlipsideItems;
-import io.gremstudio.gremlib.util.AdditionalProjectileUtil;
+import io.gremstudio.flipside.registry.tags.FlipsideEntityTags;
+import io.gremstudio.gremlib.api.util.AdditionalProjectileUtil;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -39,7 +40,7 @@ public class FireJelloBall extends AbstractJelloBall {
 
     @Override
     protected Item getDefaultItem() {
-        return FlipsideItems.FIRE_JELLO;
+        return FlipsideItems.JELLO;
     }
 
     @Override
@@ -55,7 +56,7 @@ public class FireJelloBall extends AbstractJelloBall {
                 }
 
                 if (entity instanceof LivingEntity livingEntity) {
-                    if (entity.is(JellomancyEntityTagRegistry.HEALED_BY_FIRE_JELLO)) {
+                    if (entity.is(FlipsideEntityTags.HEALED_BY_FIRE_JELLO)) {
                         livingEntity.heal(3);
                     } else if (allyCheck && level() instanceof ServerLevel serverLevel) {
                         entity.hurtServer(serverLevel, level().damageSources().inFire(), 3);

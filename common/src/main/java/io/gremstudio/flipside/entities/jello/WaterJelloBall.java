@@ -1,15 +1,17 @@
 package io.gremstudio.flipside.entities.jello;
 
 import io.gremstudio.flipside.registry.FlipsideItems;
-import io.gremstudio.flipside.util.AdditionalProjectileUtil;
+import io.gremstudio.gremlib.api.util.AdditionalProjectileUtil;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
@@ -85,7 +87,7 @@ public class WaterJelloBall extends AbstractJelloBall{
             if (this.getDeltaMovement().length() < 0.5 || this.isOnFire()) {
                 return super.hitTargetOrDeflectSelf(hitResult);
             } else {
-                double dimMult = (level().dimensionType().ultraWarm()) ? 0.75 : 1;
+                double dimMult = (level().environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, position())) ? 0.75 : 1;
                 if (blockHitResult.getDirection().getAxis() == Direction.Axis.Y) {
                     this.setDeltaMovement(this.getDeltaMovement().multiply(0.8, -0.8, 0.8).scale(dimMult));
                 } else this.setDeltaMovement(this.getDeltaMovement().multiply(-0.8, -0.8, -0.8).scale(dimMult));
@@ -103,6 +105,6 @@ public class WaterJelloBall extends AbstractJelloBall{
 
     @Override
     protected Item getDefaultItem() {
-        return FlipsideItems.WATER_JELLO;
+        return FlipsideItems.JELLO;
     }
 }

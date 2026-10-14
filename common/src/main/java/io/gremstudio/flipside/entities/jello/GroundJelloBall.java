@@ -81,6 +81,6 @@ public class GroundJelloBall extends AbstractJelloBall {
 
     @Override
     protected Item getDefaultItem() {
-        return FlipsideItems.GROUND_JELLO;
+        return FlipsideItems.JELLO;
     }
 }

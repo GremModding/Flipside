@@ -21,14 +21,14 @@ public class JelloBallModel extends Model<JelloBallRenderState> {
 
     public JelloBallModel(ModelPart root) {
         super(root, RenderTypes::entityTranslucent);
-        this.jelloBallModel = root.getChild("bb_main");
+        this.jelloBallModel = root.getChild("main");
     }
 
     public static LayerDefinition createLayer() {
         MeshDefinition meshDef = new MeshDefinition();
         PartDefinition partDef = meshDef.getRoot();
 
-        PartDefinition bb_main = partDef.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -8.0F, 0.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+        PartDefinition main = partDef.addOrReplaceChild("main", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -8.0F, 0.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
                 .texOffs(16, 16).addBox(-6.0F, -6.0F, 2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4f, 10f, -4f));
 
         return LayerDefinition.create(meshDef, 32, 32);

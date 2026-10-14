@@ -1,6 +1,7 @@
 package io.gremstudio.flipside.entities.jello;
 
-import io.gremstudio.flipside.registry.JellomancyCardinalComponents;
+import io.gremstudio.flipside.registry.FlipsideEntities;
+import io.gremstudio.flipside.registry.FlipsideItems;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -33,7 +34,7 @@ public class IceJelloBall extends AbstractJelloBall {
 
     @Override
     protected Item getDefaultItem() {
-        return FlipsideItems.ICE_JELLO;
+        return FlipsideItems.JELLO;
     }
 
     @Override

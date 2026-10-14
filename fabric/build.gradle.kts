@@ -24,7 +24,7 @@ val branch = providers.gradleProperty("branch").get()
 val gremlibVersion = providers.gradleProperty("gremlib_version").get()
 
 dependencies {
-    implementation ("net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}+${minecraftVersion}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}+${minecraftVersion}")
     implementation("io.gremstudio:gremlib:${gremlibVersion}+fabric-${minecraftVersion}-SNAPSHOT")
 }
 

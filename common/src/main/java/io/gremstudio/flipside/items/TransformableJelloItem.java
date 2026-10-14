@@ -2,6 +2,8 @@ package io.gremstudio.flipside.items;
 
 import io.gremstudio.flipside.entities.jello.AbstractJelloBall;
 import io.gremstudio.flipside.entities.jello.TransformableJelloBall;
+import io.gremstudio.gremlib.api.world.interaction.context.item.ItemInteractionContext;
+import io.gremstudio.gremlib.api.world.interaction.event.item.ItemWorldInteractions;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.world.damagesource.DamageSource;
@@ -13,7 +15,7 @@ import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 
-public class TransformableJelloItem extends AbstractJelloItem {
+public class TransformableJelloItem extends AbstractJelloItem implements ItemWorldInteractions, ProjectileItem {
     public TransformableJelloItem(Projectile.ProjectileFactory<? extends AbstractJelloBall> ballFactory, Properties properties) {
         super(ballFactory, properties);
     }
@@ -24,32 +26,26 @@ public class TransformableJelloItem extends AbstractJelloItem {
     }
 
     @Override
-    public void gremlib$onSelfFrozen(int ticksFrozen) {
-        super.gremlib$onSelfFrozen(ticksFrozen);
+    public void gremlib$onFrozen(ItemInteractionContext context, int ticksFrozen) {
     }
 
     @Override
-    public void gremlib$onSelfDamage(DamageSource source) {
-        super.gremlib$onSelfDamage(source);
+    public void gremlib$onDamage(ItemInteractionContext context, DamageSource source) {
     }
 
     @Override
-    public void gremlib$onSelfFluidDipping(FluidState fluidState) {
-        super.gremlib$onSelfFluidDipping(fluidState);
+    public void gremlib$onFluidDipping(ItemInteractionContext context, FluidState fluidState) {
     }
 
     @Override
-    public void gremlib$onSelfBurnt(int ticksBurning) {
-        super.gremlib$onSelfBurnt(ticksBurning);
+    public void gremlib$onBurnt(ItemInteractionContext context, int ticksBurning) {
     }
 
     @Override
-    public void gremlib$onSelfInExplosion(Entity cause) {
-        super.gremlib$onSelfInExplosion(cause);
+    public void gremlib$onInExplosion(ItemInteractionContext context, Entity cause) {
     }
 
     @Override
-    public void gremlib$onSelfShocked() {
-        super.gremlib$onSelfShocked();
+    public void gremlib$onShocked(ItemInteractionContext context) {
     }
 }
